@@ -6,11 +6,19 @@
 package com.dao;
 
 import com.model.HoKhauModel;
+import java.util.List;
 
 /**
  *
  * @author VITQUAY
  */
-public interface IHoKhauDAO extends IGenericDAO<HoKhauModel>{
-    
+public interface IHoKhauDAO extends IGenericDAO<HoKhauModel> {
+
+    List<HoKhauModel> findAll();
+
+    void insert(HoKhauModel newHK);
+
+    void update(HoKhauModel updateHK);
+
+    void delete(int maHK);
 }

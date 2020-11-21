@@ -5,10 +5,17 @@
  */
 package com.dao;
 
+import com.mapper.RowMapper;
+import java.util.List;
+
 /**
  *
  * @author VITQUAY
  */
 public interface IGenericDAO<T> {
-    
+    <T> List<T> query(String sql, RowMapper<T> rowMapper, Object... parameters);
+
+    void update(String sql, Object... parameters);
+
+    void insert(String sql, Object... parameters);
 }

@@ -6,11 +6,19 @@
 package com.dao;
 
 import com.model.DongGopModel;
+import java.util.List;
 
 /**
  *
  * @author VITQUAY
  */
-public interface IDongGopDAO extends IGenericDAO<DongGopModel>{
-    
+public interface IDongGopDAO extends IGenericDAO<DongGopModel> {
+
+    List<DongGopModel> findAll();
+
+    List<DongGopModel> findByTheLoai(int maTL);
+
+    void insert(DongGopModel newDG);
+
+    void update(DongGopModel updateDG);
 }

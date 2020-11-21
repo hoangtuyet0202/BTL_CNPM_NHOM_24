@@ -5,10 +5,17 @@
  */
 package com.mapper;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author VITQUAY
  */
-public class ThuPhiMapper {
+public class ThuPhiMapper implements RowMapper{
+
+    @Override
+    public Object mapRow(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

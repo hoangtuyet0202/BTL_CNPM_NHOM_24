@@ -5,33 +5,33 @@
  */
 package com.dao.impl;
 
-import com.dao.IThuPhiDAO;
-import com.model.ThuPhiModel;
+import com.dao.ITheLoaiDongGopDAO;
+import com.model.TheLoaiDongGopModel;
 import java.util.List;
 
 /**
  *
  * @author VITQUAY
  */
-public class ThuPhiDAO extends AbstractDAO<ThuPhiModel> implements IThuPhiDAO {
+public class TheLoaiDongGopDAO extends AbstractDAO<TheLoaiDongGopModel> implements ITheLoaiDongGopDAO{
 
     @Override
-    public List<ThuPhiModel> findAll() {
+    public List<TheLoaiDongGopModel> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void insert(ThuPhiModel newTP) {
+    public void insert(TheLoaiDongGopModel newTL) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(ThuPhiModel updateTP) {
+    public void update(TheLoaiDongGopModel updateTL) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(int maTP) {
+    public void delete(int maTL) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

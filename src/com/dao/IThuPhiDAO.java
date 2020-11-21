@@ -6,11 +6,19 @@
 package com.dao;
 
 import com.model.ThuPhiModel;
+import java.util.List;
 
 /**
  *
  * @author VITQUAY
  */
-public interface IThuPhiDAO extends IGenericDAO<ThuPhiModel>{
-    
+public interface IThuPhiDAO extends IGenericDAO<ThuPhiModel> {
+
+    List<ThuPhiModel> findAll();
+
+    void insert(ThuPhiModel newTP);
+
+    void update(ThuPhiModel updateTP);
+
+    void delete(int maTP);
 }
