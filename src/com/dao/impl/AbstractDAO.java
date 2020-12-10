@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,12 +22,12 @@ import javax.swing.JOptionPane;
  *
  * @author VITQUAY
  */
-public class AbstractDAO<T> implements IGenericDAO<T>{
+public class AbstractDAO<T> implements IGenericDAO<T> {
 
     public Connection getConnection() {
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/quanlydonggop", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/quanlydonggop", "root", "");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Kết nối thất bại !");
         }
@@ -45,7 +46,7 @@ public class AbstractDAO<T> implements IGenericDAO<T>{
                 } else if (parameter instanceof Integer) {
                     statement.setInt(index, (Integer) parameter);
                 } else if (parameter instanceof Date) {
-                    statement.setDate(index, (java.sql.Date) parameter);
+                    statement.setDate(index, new java.sql.Date(((Date) parameter).getTime()));
                 }
             }
         } catch (SQLException e) {
@@ -88,39 +89,39 @@ public class AbstractDAO<T> implements IGenericDAO<T>{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void update(String sql, Object... parameters) {
-        Connection connection = null;
-        PreparedStatement statement = null;
-        try {
-            connection = getConnection();
-            connection.setAutoCommit(false);
-            statement = connection.prepareStatement(sql);
-            setParameter(statement, parameters);
-            statement.executeUpdate();
-            connection.commit();
-        } catch (SQLException e) {
-            if (connection != null) {
-                try {
-                    connection.rollback();
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        } finally {
-            try {
-                if (connection != null) {
-                    connection.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-            } catch (SQLException e2) {
-                e2.printStackTrace();
-            }
-        }
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public void update(String sql, Object... parameters) {
+//        Connection connection = null;
+//        PreparedStatement statement = null;
+//        try {
+//            connection = getConnection();
+//            connection.setAutoCommit(false);
+//            statement = connection.prepareStatement(sql);
+//            setParameter(statement, parameters);
+//            statement.executeUpdate();
+//            connection.commit();
+//        } catch (SQLException e) {
+//            if (connection != null) {
+//                try {
+//                    connection.rollback();
+//                } catch (SQLException e1) {
+//                    JOptionPane.showMessageDialog(null, "Sửa không thành công !");
+//                }
+//            }
+//        } finally {
+//            try {
+//                if (connection != null) {
+//                    connection.close();
+//                }
+//                if (statement != null) {
+//                    statement.close();
+//                }
+//            } catch (SQLException e2) {
+//                JOptionPane.showMessageDialog(null, "Sửa không thành công !");
+//            }
+//        }
+//        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     @Override
     public void insert(String sql, Object... parameters) {
@@ -132,9 +133,9 @@ public class AbstractDAO<T> implements IGenericDAO<T>{
             setParameter(statement, parameters);
             statement.execute();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Thêm không thành công !");
         } finally {
-            if(statement != null) {
+            if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException ex) {
@@ -150,5 +151,33 @@ public class AbstractDAO<T> implements IGenericDAO<T>{
             }
         }
     }
-    
+    @Override
+    public void update(String sql, Object... parameters) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = getConnection();
+            statement = connection.prepareCall(sql);
+            setParameter(statement, parameters);
+            statement.execute();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Sửa không thành công !");
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
 }
