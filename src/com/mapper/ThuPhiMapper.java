@@ -5,7 +5,9 @@
  */
 package com.mapper;
 
+import com.model.ThuPhiModel;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -15,7 +17,20 @@ public class ThuPhiMapper implements RowMapper{
 
     @Override
     public Object mapRow(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+			ThuPhiModel thuPhi = new ThuPhiModel();
+			
+			thuPhi.setMaThuPhi(rs.getInt("maThuPhi"));
+			thuPhi.setMaHoKhau(rs.getInt("maHoKhau"));
+			thuPhi.setNgayThuPhi(rs.getDate("ngayThuPhi"));
+			thuPhi.setSoTien(rs.getInt("soTien"));
+			
+			return thuPhi;
+		} catch(SQLException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

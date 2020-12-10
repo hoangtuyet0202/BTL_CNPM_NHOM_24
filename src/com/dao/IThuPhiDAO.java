@@ -8,13 +8,15 @@ package com.dao;
 import com.model.ThuPhiModel;
 import java.util.List;
 
-/**
- *
- * @author VITQUAY
- */
 public interface IThuPhiDAO extends IGenericDAO<ThuPhiModel> {
 
     List<ThuPhiModel> findAll();
+    
+    List<ThuPhiModel> findByDate(String d1, String d2);
+    
+    ThuPhiModel findByMa(int maTP);
+    
+    List<ThuPhiModel> findByMaHK(int maHK);
 
     void insert(ThuPhiModel newTP);
 
