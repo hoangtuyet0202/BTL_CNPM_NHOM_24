@@ -15,10 +15,16 @@ import java.util.List;
 public interface IHoKhauDAO extends IGenericDAO<HoKhauModel> {
 
     List<HoKhauModel> findAll();
+    
+    HoKhauModel findByMa(int maHK);
+    
+    HoKhauModel findByTen(String tenHK);
 
     void insert(HoKhauModel newHK);
 
     void update(HoKhauModel updateHK);
 
     void delete(int maHK);
+    
+    int tinhPhi(int maHK);
 }
