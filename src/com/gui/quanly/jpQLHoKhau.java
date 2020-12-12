@@ -27,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Admin
  */
+
 public class jpQLHoKhau extends javax.swing.JPanel {
 
     IHoKhauDAO hkdao = new HoKhauDAO();
