@@ -5,7 +5,9 @@
  */
 package com.mapper;
 
+import com.model.HoKhauModel;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -14,8 +16,20 @@ import java.sql.ResultSet;
 public class HoKhauMapper implements RowMapper{
 
     @Override
-    public Object mapRow(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public HoKhauModel mapRow(ResultSet rs) {
+        try {
+            HoKhauModel hk = new HoKhauModel();
+            hk.setMaHK(rs.getInt("MaHoKhau"));
+            hk.setTenHK(rs.getString("TenHoKhau"));
+            hk.setSoNhanKhau(rs.getInt("SoNhanKhau"));
+            hk.setDiaChi(rs.getString("DiaChi"));
+            return hk;
+        } catch (SQLException e) {
+            return null;
+
+            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
