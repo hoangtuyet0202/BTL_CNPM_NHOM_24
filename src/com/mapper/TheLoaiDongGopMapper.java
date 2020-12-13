@@ -1,21 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mapper;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
-/**
- *
- * @author VITQUAY
- */
-public class TheLoaiDongGopMapper implements RowMapper{
+import com.model.TheLoaiDongGopModel;
+
+public class TheLoaiDongGopMapper implements RowMapper<TheLoaiDongGopModel>{
 
     @Override
-    public Object mapRow(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public TheLoaiDongGopModel mapRow(ResultSet rs) {
+        try {
+			TheLoaiDongGopModel tl = new TheLoaiDongGopModel();
+			tl.setMaTheLoaiDG(rs.getInt("MaTheLoaiDG"));
+			tl.setTenLoaiDG(rs.getString("TenLoaiDG"));
+			return tl;
+		} catch (SQLException e) {
+			return null;
+		}
     }
     
 }
