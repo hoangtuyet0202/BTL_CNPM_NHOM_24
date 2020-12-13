@@ -89,39 +89,6 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-//    @Override
-//    public void update(String sql, Object... parameters) {
-//        Connection connection = null;
-//        PreparedStatement statement = null;
-//        try {
-//            connection = getConnection();
-//            connection.setAutoCommit(false);
-//            statement = connection.prepareStatement(sql);
-//            setParameter(statement, parameters);
-//            statement.executeUpdate();
-//            connection.commit();
-//        } catch (SQLException e) {
-//            if (connection != null) {
-//                try {
-//                    connection.rollback();
-//                } catch (SQLException e1) {
-//                    JOptionPane.showMessageDialog(null, "Sửa không thành công !");
-//                }
-//            }
-//        } finally {
-//            try {
-//                if (connection != null) {
-//                    connection.close();
-//                }
-//                if (statement != null) {
-//                    statement.close();
-//                }
-//            } catch (SQLException e2) {
-//                JOptionPane.showMessageDialog(null, "Sửa không thành công !");
-//            }
-//        }
-//        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
 
     @Override
     public void insert(String sql, Object... parameters) {
@@ -161,7 +128,7 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
             setParameter(statement, parameters);
             statement.execute();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Sửa không thành công !");
+            JOptionPane.showMessageDialog(null, " Không thành công !");
         } finally {
             if (statement != null) {
                 try {
