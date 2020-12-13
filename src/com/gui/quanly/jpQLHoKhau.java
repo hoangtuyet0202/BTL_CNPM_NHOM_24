@@ -72,9 +72,9 @@ public class jpQLHoKhau extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 153)));
         setPreferredSize(new java.awt.Dimension(950, 425));
 
-        jLabel1.setText("CHI TIáº¾T Tá»ªNG KHOáº¢N TIá»€N");
+        jLabel1.setText("CHI TIẾT TỪNG KHOẢN TIỀN");
 
-        jLabel2.setText("Nháº­p tÃªn há»™ kháº©u:");
+        jLabel2.setText("Nhập tên hộ khẩu:");
 
         tblDG.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,7 +84,7 @@ public class jpQLHoKhau extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "MÃ£ Ä�Ã³ng GÃ³p", "TÃªn Há»™ Kháº©u", "Sá»‘ Tiá»�n", "TÃªn Loáº¡i Ä�Ã³ng GÃ³p", "NgÃ y Ä�Ã³ng GÃ³p", "Ghi ChÃº"
+               "Mã Đóng Góp", "Tên Hộ Khẩu", "Số Tiền", "Tên Loại Đóng Góp", "Ngày Đóng Góp", "Ghi Chú"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -105,7 +105,7 @@ public class jpQLHoKhau extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "MÃ£ Thu PhÃ­", "TÃªn Há»™ Kháº©u", "Sá»‘ Tiá»�n", "NgÃ y Thu PhÃ­"
+               "Mã Thu Phí", "Tên Hộ Khẩu", "Số Tiền", "Ngày Thu Phí"
             }
         ) {
             boolean[] canEdit = new boolean [] {
