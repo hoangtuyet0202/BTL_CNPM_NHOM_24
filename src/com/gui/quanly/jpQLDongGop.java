@@ -227,7 +227,8 @@ public class jpQLDongGop extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         int selectedIndex = tblDG.getSelectedRow();
-        if (selectedIndex >= 0) {
+        if(selectedIndex < 0) JOptionPane.showMessageDialog(null, "Bạn chưa chọn hàng nào !");
+        else {
             DongGopModel dg = dgList.get(selectedIndex);
             int option = JOptionPane.showConfirmDialog(this, "Do you want to delete this?");
 
