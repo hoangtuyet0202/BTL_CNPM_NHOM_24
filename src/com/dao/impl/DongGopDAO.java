@@ -66,5 +66,10 @@ public class DongGopDAO extends AbstractDAO<DongGopModel> implements IDongGopDAO
         return query(sql, new DongGopMapper(), maHK);
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+    @Override
+    public void deleteByTL(int maTL) {
+        sql = "DELETE FROM donggop WHERE MaTheLoaiDG = ?";
+        update(sql, maTL);
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
