@@ -171,16 +171,17 @@ public class jpQuanLyLoaiDG extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         int selectedIndex = tblLoaiDG.getSelectedRow();
+        if(selectedIndex < 0) JOptionPane.showMessageDialog(null, "Bạn chưa chọn hàng nào !");
         if (selectedIndex >= 0) {
-            TheLoaiDongGopModel dg = tlList.get(selectedIndex);
+            TheLoaiDongGopModel tldg = tlList.get(selectedIndex);
             int option = JOptionPane.showConfirmDialog(this, "Do you want to delete this?");
 
             if (option == 0) {
-                tldao.delete(dg.getMaTheLoaiDG());
+                dgdao.deleteByTL(tldg.getMaTheLoaiDG());
+                tldao.delete(tldg.getMaTheLoaiDG());
                 fillTable();
             }
         }
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnXoaActionPerformed
 
 
