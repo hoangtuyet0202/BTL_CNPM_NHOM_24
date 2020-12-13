@@ -38,27 +38,19 @@ public class jpQuanLy extends javax.swing.JPanel {
         jpquanly.removeAll();
         switch(i) {
             case 1:
-                if(dg == null) {
-                    dg = new jpQLDongGop();
-                }
+                dg = new jpQLDongGop();
                 jpquanly.add(dg);
                 break;
             case 2:
-                if(ldg == null) {
-                    ldg = new jpQuanLyLoaiDG();
-                }
+                ldg = new jpQuanLyLoaiDG();
                 jpquanly.add(ldg);
                 break;
             case 3:
-                if(tp == null) {
-                    tp = new jpQLThuPhi();
-                }
+                tp = new jpQLThuPhi();
                 jpquanly.add(tp);
                 break;
             case 4:
-                if(hk == null) {
-                    hk = new jpQLHoKhau();
-                }
+                hk = new jpQLHoKhau();
                 jpquanly.add(hk);
                 break;
             default: 
