@@ -148,7 +148,8 @@ public class jpQLThuPhi extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         int selectedIndex = tblThuPhi.getSelectedRow();
-        if (selectedIndex >= 0) {
+        if(selectedIndex < 0) JOptionPane.showMessageDialog(null, "Bạn chưa chọn hàng nào !");
+        else {
             ThuPhiModel tp = tpList.get(selectedIndex);
             int option = JOptionPane.showConfirmDialog(this, "Do you want to delete this?");
 
