@@ -16,9 +16,15 @@ public interface IDongGopDAO extends IGenericDAO<DongGopModel> {
 
     List<DongGopModel> findAll();
 
+    DongGopModel findByDG(int maDG);
+    
     List<DongGopModel> findByTheLoai(int maTL);
+    
+    List<DongGopModel> findByMaHK(int maHK);
 
     void insert(DongGopModel newDG);
 
     void update(DongGopModel updateDG);
+    
+    void delete(int maDG);
 }
