@@ -27,4 +27,6 @@ public interface IDongGopDAO extends IGenericDAO<DongGopModel> {
     void update(DongGopModel updateDG);
     
     void delete(int maDG);
+    
+    void deleteByTL(int maTL);
 }
